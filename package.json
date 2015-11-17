@@ -1,0 +1,27 @@
+{
+    "author": "Jeswin Kumar <jeswinpk@agilehead.com>",
+    "name": "isotropy-mount",
+    "version": "0.1.0",
+    "description": "Mount koa application at a given path",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jeswin/isotropy-mount.git"
+    },
+    "main": "dist/isotropy-mount",
+    "license": "MIT",
+    "dependencies": {
+        "koa-compose": "*",
+        "path-to-regexp": "*"
+    },
+    "devDependencies": {
+        "mocha": "*",
+        "should": "*",
+        "koa": "2.0.0-alpha.3",
+        "babel-polyfill": "*",
+        "babel-preset-es2015": "*",
+        "babel-preset-react": "*",
+        "babel-preset-stage-2": "*"
+    },
+    "keywords": ["koa", "mount"],
+    "license" : "MIT"
+}
