@@ -30,8 +30,8 @@ const mount = (prefix, app) => {
         if (matches) {
             const newPath = context.path.replace(prefix, '');
             context.path = newPath;
-            await downstream.call(this, async () => {
-                this.path = oldPath;
+            await downstream.call(context, context, async function() {
+                context.path = oldPath;
                 await next();
                 context.path = newPath;
             });

@@ -64,8 +64,9 @@ describe("Isotropy mount", () => {
         });
 
         return promise.then(() => {
-            calls.length.should.equal(1);
+            calls.length.should.equal(2);
             calls[0].should.equal("downstream");
+            calls[1].should.equal("upstream");
         });
     })
 
