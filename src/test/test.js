@@ -45,7 +45,7 @@ describe("Isotropy mount", () => {
     });
 
 
-    it(`GET inside child path should only invoke childApp`, () => {
+    it(`GET inside child path should invoke childApp`, () => {
         const app = new koa();
         const childApp = new koa();
         app.use(mount("/childapp", childApp));
@@ -68,7 +68,7 @@ describe("Isotropy mount", () => {
             calls[0].should.equal("downstream");
             calls[1].should.equal("upstream");
         });
-    })
+    });
 
 
     it(`GET /childappabcd should not invoke childApp`, () => {
@@ -93,6 +93,81 @@ describe("Isotropy mount", () => {
             calls.length.should.equal(1);
             calls[0].should.equal("upstream");
         });
-    })
+    });
+
+
+    it(`GET to /dir should return "/" as context.path`, () => {
+        const app = new koa();
+        const childApp = new koa();
+        let requestPathInChild = "";
+        app.use(mount("/childapp", childApp));
+
+        const calls = [];
+        app.use(async (ctx, next) => { calls.push("upstream"); await next(); })
+        childApp.use(async (ctx, next) => { calls.push("downstream"); requestPathInChild = ctx.path; await next(); })
+
+        const promise = new Promise((resolve, reject) => {
+            app.listen(function(err) {
+                if (err) {
+                    reject(err);
+                }
+                makeRequest(this.address().port, "localhost", "/childapp", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
+            });
+        });
+
+        return promise.then(() => {
+            requestPathInChild.should.equal("/");
+        });
+    });
+
+
+    it(`GET to /dir/ should return "/" as context.path`, () => {
+        const app = new koa();
+        const childApp = new koa();
+        let requestPathInChild = "";
+        app.use(mount("/childapp", childApp));
+
+        const calls = [];
+        app.use(async (ctx, next) => { calls.push("upstream"); await next(); })
+        childApp.use(async (ctx, next) => { calls.push("downstream"); requestPathInChild = ctx.path; await next(); })
+
+        const promise = new Promise((resolve, reject) => {
+            app.listen(function(err) {
+                if (err) {
+                    reject(err);
+                }
+                makeRequest(this.address().port, "localhost", "/childapp/", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
+            });
+        });
+
+        return promise.then(() => {
+            requestPathInChild.should.equal("/");
+        });
+    });
+
+
+    it(`GET to /dir/index.html should return "/index.html" as context.path`, () => {
+        const app = new koa();
+        const childApp = new koa();
+        let requestPathInChild = "";
+        app.use(mount("/childapp", childApp));
+
+        const calls = [];
+        app.use(async (ctx, next) => { calls.push("upstream"); await next(); })
+        childApp.use(async (ctx, next) => { calls.push("downstream"); requestPathInChild = ctx.path; await next(); })
+
+        const promise = new Promise((resolve, reject) => {
+            app.listen(function(err) {
+                if (err) {
+                    reject(err);
+                }
+                makeRequest(this.address().port, "localhost", "/childapp/index.html", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
+            });
+        });
+
+        return promise.then(() => {
+            requestPathInChild.should.equal("/index.html");
+        });
+    });
 
 });

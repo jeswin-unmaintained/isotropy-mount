@@ -34,7 +34,7 @@ const mount = (prefix, app) => {
             reqPath.indexOf(prefix + "/?") === 0;
 
         if (isMatch) {
-            const newPath = context.path.replace(prefix, '');
+            const newPath = context.path.replace(prefix, '') || "/";            
             context.path = newPath;
             await downstream(context, async function() {
                 context.path = oldPath;

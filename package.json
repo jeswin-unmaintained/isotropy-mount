@@ -1,7 +1,7 @@
 {
     "author": "Jeswin Kumar <jeswinpk@agilehead.com>",
     "name": "isotropy-mount",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "Mount koa application at a given path",
     "scripts": {
         "test": "mocha dist/test/test.js"
