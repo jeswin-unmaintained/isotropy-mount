@@ -1,3 +1,5 @@
+/* @flow */
+
 /*
     Contains techniques from koa-mount
     https://github.com/koajs/mount/
@@ -5,16 +7,13 @@
 
 import compose from "koa-compose";
 
-const mount = (prefix, app) => {
+const mount: (prefix: string, app: KoaType) => MiddlewareType = function(prefix, app) {
 
     if (!(/^\//.test(prefix))) {
         prefix = "/" + prefix;
     }
 
-    // compose
-    const downstream = app.middleware
-      ? compose(app.middleware)
-      : app;
+    const downstream: MiddlewareType = compose(app.middleware);
 
     return async function(context, next) {
         const oldPath = context.path;
@@ -34,7 +33,7 @@ const mount = (prefix, app) => {
             reqPath.indexOf(prefix + "/?") === 0;
 
         if (isMatch) {
-            const newPath = context.path.replace(prefix, '') || "/";            
+            const newPath = context.path.replace(prefix, '') || "/";
             context.path = newPath;
             await downstream(context, async function() {
                 context.path = oldPath;
