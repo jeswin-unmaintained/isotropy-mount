@@ -1,0 +1,13 @@
+[include]
+
+[libs]
+type-definitions/koa-compose.js
+type-definitions/isotropy-mount-types.js
+
+[options]
+
+[ignore]
+.*/dist/.*
+.*/coverage/.*
+.*/scripts/.*
+.*/node_modules/.*
