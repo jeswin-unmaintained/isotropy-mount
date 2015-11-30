@@ -6,7 +6,7 @@ import mount from "../isotropy-mount";
 
 describe("Isotropy mount", () => {
 
-    const makeRequest = (port, host, path, method, headers, cb, onErrorCb) => {
+    const makeRequest = (host, port, path, method, headers, cb, onErrorCb) => {
         const options = { host, port, path, method, headers };
 
         let result = "";
@@ -34,7 +34,7 @@ describe("Isotropy mount", () => {
                 if (err) {
                     reject(err);
                 }
-                makeRequest(this.address().port, "localhost", "", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
+                makeRequest("localhost", this.address().port, "", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
             });
         });
 
@@ -59,7 +59,7 @@ describe("Isotropy mount", () => {
                 if (err) {
                     reject(err);
                 }
-                makeRequest(this.address().port, "localhost", "/childapp", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
+                makeRequest("localhost", this.address().port, "/childapp", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
             });
         });
 
@@ -85,7 +85,7 @@ describe("Isotropy mount", () => {
                 if (err) {
                     reject(err);
                 }
-                makeRequest(this.address().port, "localhost", "/childappabcd", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
+                makeRequest("localhost", this.address().port, "/childappabcd", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
             });
         });
 
@@ -111,7 +111,7 @@ describe("Isotropy mount", () => {
                 if (err) {
                     reject(err);
                 }
-                makeRequest(this.address().port, "localhost", "/childapp", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
+                makeRequest("localhost", this.address().port, "/childapp", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
             });
         });
 
@@ -136,7 +136,7 @@ describe("Isotropy mount", () => {
                 if (err) {
                     reject(err);
                 }
-                makeRequest(this.address().port, "localhost", "/childapp/", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
+                makeRequest("localhost", this.address().port, "/childapp/", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
             });
         });
 
@@ -161,7 +161,7 @@ describe("Isotropy mount", () => {
                 if (err) {
                     reject(err);
                 }
-                makeRequest(this.address().port, "localhost", "/childapp/index.html", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
+                makeRequest("localhost", this.address().port, "/childapp/index.html", "GET", { 'Content-Type': 'application/x-www-form-urlencoded' }, resolve, reject);
             });
         });
 
