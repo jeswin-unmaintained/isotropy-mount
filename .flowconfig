@@ -1,8 +1,7 @@
 [include]
 
 [libs]
-type-definitions/koa-compose.js
-type-definitions/isotropy-mount-types.js
+interfaces/
 
 [options]
 

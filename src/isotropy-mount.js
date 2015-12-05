@@ -5,15 +5,16 @@
     https://github.com/koajs/mount/
 */
 
+import type KoaType from "koa";
 import compose from "koa-compose";
 
-const mount: (prefix: string, app: KoaType) => MiddlewareType = function(prefix, app) {
+const mount: (prefix: string, app: KoaType) => KoaMiddlewareType = function(prefix, app) {
 
     if (!(/^\//.test(prefix))) {
         prefix = "/" + prefix;
     }
 
-    const downstream: MiddlewareType = compose(app.middleware);
+    const downstream: KoaMiddlewareType = compose(app.middleware);
 
     return async function(context, next) {
         const oldPath = context.path;
