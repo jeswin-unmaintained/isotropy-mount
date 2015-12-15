@@ -5,7 +5,7 @@
     https://github.com/koajs/mount/
 */
 
-import type KoaType from "koa";
+import type { KoaType, KoaMiddlewareType } from "./flow/koa";
 import compose from "koa-compose";
 
 const mount: (prefix: string, app: KoaType) => KoaMiddlewareType = function(prefix, app) {

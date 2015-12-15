@@ -6,7 +6,9 @@ interfaces/
 [options]
 
 [ignore]
-.*/dist/.*
 .*/coverage/.*
 .*/scripts/.*
-.*/node_modules/.*
+.*/node_modules/babel-types/.*
+.*/node_modules/babylon/.*
+.*/node_modules/babel-.*/.*
+.*/node_modules/koa-compose/.*
