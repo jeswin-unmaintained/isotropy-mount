@@ -8,7 +8,4 @@ interfaces/
 [ignore]
 .*/coverage/.*
 .*/scripts/.*
-.*/node_modules/babel-types/.*
-.*/node_modules/babylon/.*
-.*/node_modules/babel-.*/.*
-.*/node_modules/koa-compose/.*
+.*/node_modules/.*
