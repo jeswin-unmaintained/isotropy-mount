@@ -1,7 +1,7 @@
 {
     "author": "Jeswin Kumar <jeswinpk@agilehead.com>",
     "name": "isotropy-mount",
-    "version": "0.3.4",
+    "version": "0.3.6",
     "description": "Mount koa application at a given path",
     "scripts": {
         "test": "mocha dist/test/test.js"
@@ -13,7 +13,7 @@
     "main": "dist/isotropy-mount",
     "license": "MIT",
     "dependencies": {
-        "koa-compose": "*"
+        "koa-compose": "^3.0.0"
     },
     "devDependencies": {
         "koa": ">=2.0.0-alpha.3",
