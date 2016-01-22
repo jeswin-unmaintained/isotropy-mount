@@ -1,30 +1,30 @@
 {
-    "author": "Jeswin Kumar <jeswinpk@agilehead.com>",
-    "name": "isotropy-mount",
-    "version": "0.3.7",
-    "description": "Mount koa application at a given path",
-    "scripts": {
-        "test": "mocha dist/test/test.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/jeswin/isotropy-mount.git"
-    },
-    "main": "dist/isotropy-mount",
-    "license": "MIT",
-    "dependencies": {
-        "koa-compose": "^3.0.0"
-    },
-    "devDependencies": {
-        "koa": ">=2.0.0-alpha.3",
-        "babel-polyfill": "*",
-        "babel-preset-es2015": "*",
-        "babel-preset-react": "*",
-        "babel-preset-stage-2": "*",
-        "babel-plugin-transform-flow-strip-types": "*",
-        "mocha": "*",
-        "should": "*"
-    },
-    "keywords": ["koa", "isotropy", "mount"],
-    "license" : "MIT"
+  "author": "Jeswin Kumar <jeswinpk@agilehead.com>",
+  "name": "isotropy-mount",
+  "version": "0.3.8",
+  "description": "Mount koa application at a given path",
+  "scripts": {
+    "test": "mocha dist/test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeswin/isotropy-mount.git"
+  },
+  "main": "dist/isotropy-mount",
+  "license": "MIT",
+  "dependencies": {
+    "koa-compose": "^3.0.0"
+  },
+  "devDependencies": {
+    "koa": ">=2.0.0-alpha.3",
+    "babel-polyfill": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "babel-preset-stage-2": "*",
+    "babel-plugin-transform-flow-strip-types": "*",
+    "mocha": "*",
+    "should": "*"
+  },
+  "keywords": ["koa", "isotropy", "mount"],
+  "license" : "MIT"
 }
